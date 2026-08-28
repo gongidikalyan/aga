@@ -1,0 +1,126 @@
+        <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn how WrindhaOS helps competitive-exam students organise study, habits, goals, and daily life.">
+  <title>About Us | WrindhaOS</title>
+  <style>
+    :root { --ink:#172033; --muted:#667085; --line:#e5e7ef; --primary:#635bff; --primary-dark:#5148e5; --soft:#f6f7ff; --card:#fff; }
+        * { box-sizing:border-box; }
+        body { margin:0; color:var(--ink); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:linear-gradient(135deg,#eef2ff 0%,#f8fafc 48%,#ecfeff 100%); min-height:100vh; }
+        body:before { content:""; position:fixed; width:420px; height:420px; border-radius:50%; background:#c4b5fd55; filter:blur(70px); top:-140px; right:-80px; pointer-events:none; }
+        .container { width:min(100% - 32px, 900px); margin:42px auto 64px; position:relative; }
+        .header { color:white; padding:38px 42px; border-radius:24px 24px 24px 24px; background:linear-gradient(115deg,#312e81,#635bff 58%,#06b6d4); box-shadow:0 18px 38px #4338ca2b; position:relative; overflow:hidden; }
+        .header:after { content:""; position:absolute; width:220px; height:220px; border:28px solid #ffffff1f; border-radius:50%; right:-45px; top:-100px; }
+        .eyebrow { text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; font-weight:800; opacity:.8; margin:0 0 12px; }
+        h1 { font-size:clamp(2rem,5vw,3rem); margin:0 0 8px; letter-spacing:-.04em; }
+        .header p { margin:0; opacity:.88; font-size:1.04rem; }
+        form { background:var(--card); padding:34px 42px 42px; border-radius:24px 24px 24px 24px; box-shadow:0 24px 65px #17203314; }
+        .section { border-bottom:1px solid var(--line); padding:0 0 28px; margin-bottom:30px; }
+        h2 { font-size:1.3rem; margin:0 0 22px; letter-spacing:-.02em; }
+        h2:before { content:""; display:inline-block; width:5px; height:20px; border-radius:4px; background:var(--primary); margin-right:10px; vertical-align:-2px; }
+        .input-group { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
+        label { color:#344054; font-size:.9rem; font-weight:650; }
+        label span { color:var(--muted); font-weight:400; }
+        input[type=text], input[type=email], input[type=tel] { border:1px solid #d9deea; border-radius:10px; padding:13px 14px; font:inherit; color:var(--ink); outline:none; transition:.2s; background:#fbfcff; }
+        input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus { border-color:var(--primary); box-shadow:0 0 0 4px #635bff18; background:#fff; }
+                @media (max-width:650px) { .container { width:min(100% - 18px,900px); margin:16px auto 35px; } .header,form { padding:27px 20px; } .options { grid-template-columns:1fr; } .options label { text-align:left; padding:10px 12px; } .scale span { flex:1 1 125px; text-align:center; } }
+
+            .section { border-bottom:1px solid var(--line); padding:0 0 28px; margin-bottom:40px; margin-top:40px;border-top:1px;}
+            button { display:block; width:50%; border:0; border-radius:12px; padding:15px; color:#fff; background:linear-gradient(100deg,var(--primary),#06a6c8); font:700 1rem inherit; cursor:pointer; box-shadow:0 10px 18px #635bff2e; transition:.2s;margin-left:25%;}
+         button:hover { transform:translateY(-2px); background:linear-gradient(100deg,var(--primary-dark),#0891b2);} 
+        
+
+  </style>
+  </head>
+  <body>
+ <div class="container">
+        <form id="waitlist">
+
+            <!-- Personal Details -->
+            <div class="section">
+                <h2>Details</h2>
+
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Phone <span></span></label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number">
+                </div>
+                
+<button type="submit" id="submitBtn">Join the waitlist</button>
+
+<div id="formMessage"></div>
+            </div>
+
+            
+        </body>
+        </html>
+            <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = "";
+  const SUPABASE_KEY = "";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+  const form = document.getElementById("waitlist");
+  const submitBtn = document.getElementById("submitBtn");
+  const formMessage = document.getElementById("formMessage");
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    // Basic validation
+    if (!name || !email || !phone) {
+      formMessage.textContent = "Please fill in all required fields.";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    const { error } = await supabaseClient
+      .from("join_details")
+      .insert({
+        name: name,
+        email: email,
+        phone: phone || null
+      });
+
+    if (error) {
+      console.error("Supabase error:", error);
+
+      formMessage.textContent = "Something went wrong. Please try again.";
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Get Started";
+
+      return;
+    }
+
+    // Success
+    formMessage.textContent =
+      "Thank you! Your details have been submitted.";
+
+    form.reset();
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Get Started";
+  });
+
+</script>

@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="WrindhaOS subscription plans, billing, renewals, cancellation, and refund policy.">
+        <title>Subscription Policy — WrindhaOS</title>
+        <style>
+    @layer reset, base, components, utilities;
+
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body, h1, h2, p, ul, ol, figure { margin: 0; }
+  img, svg { display: block; max-width: 100%; }
+  @import url("./base.css");
+:root { --accent: #176b54; --accent-soft: #dfeee8; --accent-deep: #164638; }
+.plan-list { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 0.8rem; padding: 0 !important; list-style: none; }
+.plan-list li { padding: 1.4rem; border: 1px solid var(--line); border-radius: 0.4rem; background: var(--surface); }
+.plan-list li:last-child { color: white; background: var(--accent-deep); }
+.plan-list li:last-child strong { color: white; }
+@media (max-width: 560px) { .plan-list { grid-template-columns: 1fr; } }
+
+}
+
+@layer base {
+  :root {
+    --ink: #1f2925;
+    --muted: #66706b;
+    --paper: #fbfaf5;
+    --surface: #ffffff;
+    --line: #d9ddd7;
+    --accent: #23604b;
+    --accent-soft: #e4eee9;
+    --accent-deep: #173e32;
+    --warning: #8a5a2b;
+    --shadow: 0 24px 70px rgba(31, 41, 37, 0.11);
+  }
+
+  body {
+    min-width: 320px;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 8% 12%, color-mix(in srgb, var(--accent-soft) 70%, transparent), transparent 25rem),
+      linear-gradient(90deg, rgba(31, 41, 37, 0.025) 1px, transparent 1px),
+      var(--paper);
+    background-size: auto, 4rem 4rem, auto;
+    font-family: Aptos, "Trebuchet MS", sans-serif;
+    line-height: 1.72;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+  a:hover { color: var(--accent); }
+  :focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 65%, white); outline-offset: 4px; }
+  ::selection { color: var(--accent-deep); background: var(--accent-soft); }
+}
+
+@layer components {
+  .site-header {
+    position: sticky;
+    z-index: 20;
+    top: 0;
+    border-bottom: 1px solid rgba(31, 41, 37, 0.1);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(18px);
+  }
+
+  .header-inner {
+    width: min(1180px, calc(100% - 2rem));
+    min-height: 4.5rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--accent-deep);
+    font-family: "Iowan Old Style", Baskerville, Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    width: 2rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 0.65rem 0.65rem 0.65rem 0.15rem;
+    color: white;
+    background: var(--accent);
+    font-family: Aptos, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: -0.05em;
+  }
+
+  .policy-nav { display: flex; align-items: center; gap: 0.2rem; }
+  .policy-nav a {
+    padding: 0.55rem 0.7rem;
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .policy-nav a:hover, .policy-nav a[aria-current="page"] { color: var(--accent-deep); background: var(--accent-soft); }
+
+  .hero {
+    width: min(1180px, calc(100% - 2rem));
+    margin: clamp(3rem, 8vw, 7rem) auto clamp(2.5rem, 6vw, 5rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.42fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: end;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  h1, h2 {
+    color: var(--accent-deep);
+    font-family: "Iowan Old Style", Baskerville, Georgia, serif;
+    line-height: 1.08;
+  }
+
+  h1 { max-width: 12ch; font-size: clamp(3.2rem, 8.2vw, 7.4rem); letter-spacing: -0.055em; }
+  .hero-summary { max-width: 32rem; margin-top: 1.5rem; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.26rem); }
+
+  .document-meta {
+    position: relative;
+    padding: 1.6rem;
+    border: 1px solid var(--line);
+    border-radius: 0.35rem 1.5rem 0.35rem 0.35rem;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: var(--shadow);
+  }
+  .document-meta::before {
+    content: "";
+    position: absolute;
+    inset: -0.5rem auto auto -0.5rem;
+    width: 2.3rem;
+    aspect-ratio: 1;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+  }
+  .meta-item + .meta-item { margin-top: 1.15rem; padding-top: 1.15rem; border-top: 1px solid var(--line); }
+  .meta-label { display: block; margin-bottom: 0.2rem; color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .meta-value { color: var(--ink); font-size: 0.92rem; line-height: 1.5; }
+
+  .page-shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto 7rem;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 760px);
+    gap: clamp(2rem, 7vw, 6rem);
+    justify-content: center;
+    align-items: start;
+  }
+
+  .toc { position: sticky; top: 6.5rem; }
+  .toc-title { margin-bottom: 0.8rem; color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; }
+  .toc ol { padding: 0; list-style: none; counter-reset: toc; }
+  .toc li { counter-increment: toc; }
+  .toc a {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr;
+    gap: 0.4rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(31, 41, 37, 0.08);
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.35;
+    text-decoration: none;
+  }
+  .toc a::before { content: counter(toc, decimal-leading-zero); color: var(--accent); font-size: 0.65rem; font-weight: 800; }
+  .toc a:hover { color: var(--accent-deep); transform: translateX(0.2rem); }
+
+  .download-link {
+    margin-top: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--accent-deep);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .download-link::before { content: "↓"; width: 1.8rem; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; }
+
+  .policy-content { min-width: 0; }
+  .policy-section {
+    scroll-margin-top: 7rem;
+    padding: 2.3rem 0 2.8rem;
+    border-top: 1px solid var(--line);
+  }
+  .policy-section:first-child { border-top: 3px solid var(--accent); }
+  .section-kicker { display: block; margin-bottom: 0.7rem; color: var(--accent); font-size: 0.67rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+  h2 { margin-bottom: 1.25rem; font-size: clamp(1.8rem, 4vw, 2.75rem); letter-spacing: -0.035em; }
+  .policy-section p + p { margin-top: 1rem; }
+  .policy-section ul, .policy-section ol { padding-left: 1.25rem; }
+  .policy-section li { padding-left: 0.45rem; }
+  .policy-section li + li { margin-top: 0.8rem; }
+  .policy-section li::marker { color: var(--accent); font-weight: 800; }
+  .policy-section strong { color: var(--accent-deep); }
+
+  .callout {
+    margin: 1.5rem 0;
+    padding: 1.2rem 1.35rem;
+    border-left: 4px solid var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+  }
+
+  .steps { counter-reset: steps; padding: 0 !important; list-style: none; }
+  .steps li { position: relative; padding: 1.1rem 1.2rem 1.1rem 4rem; border: 1px solid var(--line); background: var(--surface); }
+  .steps li + li { margin-top: 0.7rem; }
+  .steps li::before { counter-increment: steps; content: counter(steps, decimal-leading-zero); position: absolute; left: 1.1rem; top: 1.05rem; color: var(--accent); font-family: "Iowan Old Style", Baskerville, Georgia, serif; font-size: 1.35rem; font-weight: 700; }
+
+  .table-wrap { margin-top: 1.5rem; overflow-x: auto; border: 1px solid var(--line); border-radius: 0.5rem; box-shadow: 0 12px 35px rgba(31, 41, 37, 0.06); }
+  table { width: 100%; min-width: 980px; border-collapse: collapse; background: var(--surface); font-size: 0.78rem; line-height: 1.45; }
+  th, td { padding: 1rem; text-align: left; vertical-align: top; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  th:last-child, td:last-child { border-right: 0; }
+  tr:last-child td { border-bottom: 0; }
+  th { color: white; background: var(--accent-deep); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  tbody tr:nth-child(even) { background: color-mix(in srgb, var(--accent-soft) 38%, white); }
+  td:first-child { color: var(--accent-deep); font-weight: 800; }
+
+  .site-footer { border-top: 1px solid var(--line); }
+  .footer-inner { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; padding: 2rem 0 3rem; display: flex; justify-content: space-between; gap: 2rem; color: var(--muted); font-size: 0.78rem; }
+  .footer-inner a { color: var(--accent-deep); font-weight: 700; }
+}
+
+@layer utilities {
+  .placeholder { color: var(--warning); background: #f7ede1; box-decoration-break: clone; padding: 0.06em 0.22em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+}
+
+@media (max-width: 900px) {
+  .header-inner { align-items: flex-start; padding: 1rem 0; }
+  .policy-nav { max-width: 68vw; overflow-x: auto; padding-bottom: 0.2rem; }
+  .policy-nav a { white-space: nowrap; }
+  .hero { grid-template-columns: 1fr; }
+  .document-meta { max-width: 34rem; }
+  .page-shell { grid-template-columns: 1fr; }
+  .toc { position: static; display: grid; grid-template-columns: 1fr auto; gap: 0 1rem; }
+  .toc ol { grid-column: 1 / -1; columns: 2; column-gap: 2rem; }
+  .toc li { break-inside: avoid; }
+}
+
+@media (max-width: 620px) {
+  .header-inner { width: min(100% - 1.2rem, 1180px); display: block; }
+  .brand { margin-bottom: 0.75rem; }
+  .policy-nav { max-width: 100%; margin-inline: -0.3rem; }
+  .hero, .page-shell, .footer-inner { width: min(100% - 1.5rem, 1180px); }
+  h1 { font-size: clamp(2.9rem, 15vw, 4.8rem); }
+  .toc ol { columns: 1; }
+  .footer-inner { display: block; }
+  .footer-inner p + p { margin-top: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero > *, .policy-section { animation: reveal 0.7s both; }
+  .hero > :nth-child(2) { animation-delay: 0.12s; }
+  .policy-section:nth-child(2) { animation-delay: 0.08s; }
+  .policy-section:nth-child(3) { animation-delay: 0.12s; }
+  .toc a { transition: color 160ms ease, transform 160ms ease, background 160ms ease; }
+  @keyframes reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+}
+
+@media print {
+  :root { --paper: white; --surface: white; }
+  body { background: white; font-size: 10.5pt; }
+  .site-header, .toc, .site-footer, .download-link { display: none !important; }
+  .hero, .page-shell { width: 100%; margin: 0; display: block; }
+  .hero { padding-bottom: 1.5rem; }
+  h1 { font-size: 34pt; }
+  .document-meta { margin-top: 1.5rem; box-shadow: none; }
+  .policy-section { break-inside: avoid; padding: 1.25rem 0; }
+  .table-wrap { overflow: visible; box-shadow: none; }
+  table { min-width: 0; font-size: 7pt; }
+}
+.wordmark {
+    flex-shrink: 0;
+    color: #111;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+
+    margin-right: 55px;
+}
+.wordmark img{
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+.wordmark span{
+  height: 60px;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 700px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+</style>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="header-inner">
+                <a class="wordmark" href="index.html">
+                      <img src="Images/Image1.jpeg" alt = "Wrindha OS logo">
+
+      <span>Wrindha OS</span>
+    </a>
+       </header>
+</div>
+        </header>
+        <main>
+            <section class="hero" aria-labelledby="page-title">
+                <div>
+                    <p class="eyebrow">Policy 06 · Billing &amp;access</p>
+                    <h1 id="page-title">Subscription Policy</h1>
+                    <p class="hero-summary">A clear guide to WrindhaOS plans, recurring billing, cancellations, failed payments, and what happens to your data after a downgrade.</p>
+                </div>
+                <aside class="document-meta" aria-label="Document information">
+                    <div class="meta-item">
+                        <span class="meta-label">Applies to</span>
+                        <p class="meta-value">
+                            WrindhaOS Android app (<code>com.wrindhaos.productivity</code>
+                            ) and wrindhaos.in
+                        </p>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Published by</span>
+                        <p class="meta-value placeholder">[LEGAL ENTITY NAME — e.g., “GrabMyService Private Limited,” trading as WrindhaOS]</p>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Effective date</span>
+                        <p class="meta-value placeholder">[EFFECTIVE DATE — the date this version is published on wrindhaos.in / in-app]</p>
+                    </div>
+                </aside>
+            </section>
+            <div class="page-shell">
+                <aside class="toc" aria-label="On this page">
+                    <p class="toc-title">On this page</p>
+                    <ol>
+                        <li>
+                            <a href="#plans">Plans</a>
+                        </li>
+                        <li>
+                            <a href="#billing">How billing works</a>
+                        </li>
+                        <li>
+                            <a href="#renewal">Auto-renewal</a>
+                        </li>
+                        <li>
+                            <a href="#managing">Managing your subscription</a>
+                        </li>
+                        <li>
+                            <a href="#downgrade">Downgrade or cancel</a>
+                        </li>
+                        <li>
+                            <a href="#failed">Failed payments</a>
+                        </li>
+                        <li>
+                            <a href="#price">Price changes</a>
+                        </li>
+                        <li>
+                            <a href="#refunds">Refunds</a>
+                        </li>
+                        <li>
+                            <a href="#taxes">Taxes</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ol>
+                    <a class="download-link" href="assets/docs/06_Subscription_Policy.docx" download>Download source DOCX</a>
+                </aside>
+                <article class="policy-content">
+                    <section class="policy-section" id="plans">
+                        <span class="section-kicker">Section 01</span>
+                        <h2>Plans</h2>
+                        <p>WrindhaOS currently offers two plans:</p>
+                        <ul class="plan-list">
+                            <li>
+                                <strong>Free</strong>
+                                — core productivity tools (Eisenhower matrix, calendar, to-dos, focus timer, analytics, career roadmap) with limits on the number of active habits and subjects/goals, as shown in-app.
+                            </li>
+                            <li>
+                                <strong>Premium (Monthly or Yearly)</strong>
+                                — unlimited habits, subjects, and goals, and full access to all current and future Premium features, billed on a recurring basis through Google Play Billing.
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="policy-section" id="billing">
+                        <span class="section-kicker">Section 02</span>
+                        <h2>How Billing Works</h2>
+                        <p>Premium subscriptions are sold and billed exclusively through Google Play Billing, using the payment method on file with your Google Play / Google Payments account. We receive subscription status, plan, purchase token, and renewal information from Google Play to activate your Premium features — we do not receive or store your card or bank details.</p>
+                    </section>
+                    <section class="policy-section" id="renewal">
+                        <span class="section-kicker">Section 03</span>
+                        <h2>Auto-Renewal</h2>
+                        <p>Subscriptions renew automatically at the end of each billing period (monthly or yearly, as selected) unless cancelled before the renewal date. You will be charged through your Google Play account at the then-current price unless you cancel.</p>
+                    </section>
+                    <section class="policy-section" id="managing">
+                        <span class="section-kicker">Section 04</span>
+                        <h2>Managing Your Subscription</h2>
+                        <p>You can view, upgrade, downgrade, or cancel your subscription at any time via Google Play (Play Store → Menu → Subscriptions) or via the in-app subscription screen, which links to Google Play's subscription management.</p>
+                    </section>
+                    <section class="policy-section" id="downgrade">
+                        <span class="section-kicker">Section 05</span>
+                        <h2>What Happens When You Downgrade or Cancel</h2>
+                        <ul>
+                            <li>Your Premium access continues until the end of the period you already paid for.</li>
+                            <li>After that, your account reverts to the Free plan.</li>
+                            <li>If your Free-tier usage exceeds Free-plan limits (e.g., more active habits/subjects than the Free cap allows), existing items are preserved but you may be unable to add new items until you either remove some or resubscribe.</li>
+                            <li>Your data (journal, habits, goals, etc.) is not deleted when you downgrade — only Premium feature access changes.</li>
+                        </ul>
+                    </section>
+                    <section class="policy-section" id="failed">
+                        <span class="section-kicker">Section 06</span>
+                        <h2>Failed Payments</h2>
+                        <p>If a renewal payment fails, Google Play will retry according to its own retry schedule. If payment ultimately cannot be collected, your subscription will be marked accordingly and your account will revert to the Free plan at the end of the grace period Google Play provides.</p>
+                    </section>
+                    <section class="policy-section" id="price">
+                        <span class="section-kicker">Section 07</span>
+                        <h2>Price Changes</h2>
+                        <p>We may change subscription pricing from time to time. Existing subscribers will be given advance notice as required by Google Play policy before a price change takes effect on their next renewal, and may cancel before the new price applies.</p>
+                    </section>
+                    <section class="policy-section" id="refunds">
+                        <span class="section-kicker">Section 08</span>
+                        <h2>Refunds</h2>
+                        <p>Refund requests are handled per our Refund &amp;Cancellation Policy and are ultimately subject to Google Play's refund process.</p>
+                    </section>
+                    <section class="policy-section" id="taxes">
+                        <span class="section-kicker">Section 09</span>
+                        <h2>Taxes</h2>
+                        <p>Displayed subscription prices are inclusive/exclusive of applicable taxes as shown at checkout in Google Play, which handles tax calculation and remittance for digital subscriptions per its own merchant-of-record arrangements where applicable.</p>
+                    </section>
+                    <section class="policy-section" id="contact">
+                        <span class="section-kicker">Section 10</span>
+                        <h2>Contact</h2>
+                        <p>
+                            Questions about your subscription: <span class="placeholder">[SUPPORT EMAIL — e.g., support@wrindhaos.in]</span>
+                            .
+                        </p>
+                    </section>
+                </article>
+            </div>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <p>WrindhaOS policy library</p>
+                <p>
+                    <a href="#page-title">Back to top</a>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

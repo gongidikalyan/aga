@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;700&display=swap'); :root {
+    --paper: #f1eedf;
+    --blue: #223e9c;
+    --cream: #f7f2e7;
+    --red: #c84f3f;
+    --ink: #182034;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--cream);
+    font-family: "Public Sans",sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    min-height: 84px;
+    padding: 20px max(24px,calc((100vw - 1180px)/2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--paper);
+    border-bottom: 3px solid var(--ink);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.brand span {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    color: white;
+    background: var(--blue);
+    transform: rotate(-6deg);
+    font-family: "Archivo Black",sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    font: 500 .68rem "IBM Plex Mono",monospace;
+    text-transform: uppercase;
+}
+
+nav a:hover,nav .active {
+    background: var(--ink);
+    color: var(--yellow);
+    padding: 4px 7px;
+    margin: -4px -7px;
+}
+
+main {
+    width: min(1180px,calc(100% - 40px));
+    margin: auto;
+}
+
+.intro {
+    min-height: 500px;
+    display: grid;
+    grid-template-columns: .7fr 2fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    column-gap: 7vw;
+    border-left: 3px solid var(--ink);
+    padding: 80px 0 80px 40px;
+    position: relative;
+}
+
+.intro::after {
+    content: "?";
+    position: absolute;
+    right: 0;
+    bottom: -45px;
+    font: 400 20rem/1 "Archivo Black",sans-serif;
+    color: rgba(34,62,156,.1);
+    z-index: -1;
+}
+
+.kicker {
+    font: 500 .74rem "IBM Plex Mono",monospace;
+    text-transform: uppercase;
+}
+
+h1 {
+    grid-column: 2;
+    margin: 0;
+    font: 400 clamp(3.5rem,8vw,7rem)/.9 "Archivo Black",sans-serif;
+    letter-spacing: -.055em;
+    color: var(--blue);
+}
+
+.intro>p:last-child {
+    grid-column: 2;
+    max-width: 640px;
+    margin: 30px 0 0;
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: 1.35fr .65fr;
+    border: 3px solid var(--ink);
+    box-shadow: 10px 10px 0 var(--ink);
+}
+
+.support-grid article {
+    min-height: 340px;
+    padding: 38px;
+    border: 1.5px solid var(--ink);
+    position: relative;
+}
+
+.support-grid article h2 {
+    max-width: 520px;
+    font: 400 clamp(1.7rem,3vw,2.8rem)/1.05 "Archivo Black",sans-serif;
+    letter-spacing: -.04em;
+}
+
+.support-grid article p {
+    line-height: 1.65;
+}
+
+.primary-card {
+    color: white;
+    background: var(--blue);
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 8px 12px;
+    color: var(--ink);
+    background: var(--yellow);
+    font: 500 .68rem "IBM Plex Mono",monospace;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+}
+
+.timing {
+    display: grid;
+    gap: 5px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.4);
+}
+
+.timing span,.timing small {
+    font-family: "IBM Plex Mono",monospace;
+}
+
+.timing strong {
+    font-size: 1.5rem;
+}
+
+.index {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    color: var(--red);
+    font: 500 .8rem "IBM Plex Mono",monospace;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid;
+    font-size: .83rem;
+}
+
+li span {
+    font-family: "IBM Plex Mono",monospace;
+}
+
+.support-grid article>a {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid;
+}
+
+.placeholder {
+    color: var(--red);
+}
+
+.primary-card .placeholder {
+    color: var(--yellow);
+}
+
+.office {
+    margin: 120px 0;
+    padding: 60px;
+    background: var(--yellow);
+    border: 3px solid var(--ink);
+    transform: rotate(.6deg);
+}
+
+.office p {
+    font: 500 .7rem "IBM Plex Mono",monospace;
+    text-transform: uppercase;
+}
+
+.office h2 {
+    margin: 20px 0 10px;
+    font: 400 2.5rem "Archivo Black",sans-serif;
+}
+
+.office address {
+    max-width: 700px;
+    font-style: normal;
+    line-height: 1.6;
+}
+
+footer {
+    min-height: 100px;
+    padding: 30px max(24px,calc((100vw - 1180px)/2));
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background: var(--ink);
+    font: .76rem "IBM Plex Mono",monospace;
+}
+
+@media (max-width: 760px) {
+    header {
+        align-items:flex-start;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        padding-left: 20px;
+    }
+
+    .intro>* {
+        grid-column: 1!important;
+    }
+
+    h1 {
+        margin-top: 25px;
+    }
+
+    .support-grid {
+        grid-template-columns: 1fr;
+        box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .support-grid article {
+        min-height: auto;
+    }
+
+    .office {
+        padding: 35px 25px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+.wordmark {
+    flex-shrink: 0;
+    color: #111;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+
+    margin-right: 55px;
+}
+.wordmark img{
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+.wordmark span{
+  height: 60px;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 700px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+
+</style>    
+</head>
+    <body>
+        
+<body>
+  <header>
+<a class="wordmark" href="index.html">
+                      <img src="Images/Image1.jpeg" alt = "Wrindha OS logo">
+
+      <span>Wrindha OS</span>
+    </a>
+       </header>
+    </header>
+
+  <main>
+    <section class="intro">
+      <p class="kicker">Support desk / WrindhaOS</p>
+      <h1>Tell us what’s getting in your way.</h1>
+      <p>Account, app, billing, privacy, or partnership question? Start with the right channel below.</p>
+    </section>
+
+    <section class="support-grid" aria-label="Contact options">
+      <article class="primary-card">
+        <div class="card-tag">General support</div>
+        <h2>Questions about the app or your account</h2>
+        <p>Email <strong class="placeholder">[wrindhaos.in]</strong> or open <strong>Settings → Help &amp; Support → Raise a Ticket</strong> in the app.</p>
+        <div class="timing"><span>Reply target</span><strong>Within 48 hours</strong><small>Routine queries are generally resolved within 7 business days.</small></div>
+      </article>
+
+      <article>
+        <div class="index">02</div>
+        <h2>Privacy grievance</h2>
+        <p>For unresolved privacy, data protection, or content complaints, contact the designated Grievance Officer.</p>
+        <ul>
+          <li><span>Name</span><strong class="placeholder">[OFFICER NAME]</strong></li>
+          <li><span>Email</span><strong class="placeholder">[OFFICER EMAIL]</strong></li>
+          <li><span>Phone</span><strong class="placeholder">[PHONE NUMBER]</strong></li>
+        </ul>
+      </article>
+
+      <article>
+        <div class="index">03</div>
+        <h2>Billing &amp; subscription</h2>
+        <p>WrindhaOS Premium payments run through Google Play. Manage cancellation in Google Play subscriptions and see the refund policy for eligibility details.</p>
+        <a href='refund.html'>View refund guidance <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article>
+        <div class="index">04</div>
+        <h2>Business enquiries</h2>
+        <p>For partnerships or press, email <strong class="placeholder">[wrindhaos.in]</strong> with the subject <strong>“Business Enquiry.”</strong></p>
+      </article>
+    </section>
+
+    <section class="office">
+      <p>Registered office</p>
+      <h2 class="placeholder">[WRINDHA OS]</h2>
+      <address class="placeholder"></address>
+    </section>
+  </main>
+
+  <footer><span>wrindhaos.in</span><span>Effective date: <b class="placeholder"></b></span></footer>
+</body>
+</html>

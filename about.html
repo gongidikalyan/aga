@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn how WrindhaOS helps competitive-exam students organise study, habits, goals, and daily life.">
+  <title>About Us | WrindhaOS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap'); :root {
+    --ink: #203029;
+    --paper: #f1eedf;
+    --mint: #b9d2bd;
+    --lime: #d9e36e;
+    --line: rgba(32,48,41,.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: Manrope,sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .28;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+}
+
+a {
+    color: inherit;
+}
+
+.site-header {
+    width: min(1180px,calc(100% - 40px));
+    margin: auto;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: -.03em;
+}
+
+.brand span {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid;
+    border-radius: 50%;
+    font-family: "Playfair Display",serif;
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+}
+
+nav a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover,nav .active {
+    border-color: var(--ink);
+}
+
+main {
+    width: min(1180px,calc(100% - 40px));
+    margin: auto;
+}
+
+.hero {
+    min-height: 660px;
+    padding: 92px 0 70px;
+    position: relative;
+    display: grid;
+    align-content: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    right: 3%;
+    top: 16%;
+    width: 310px;
+    aspect-ratio: 1;
+    border-radius: 47% 53% 61% 39% / 40% 38% 62% 60%;
+    background: var(--mint);
+    transform: rotate(12deg);
+    z-index: -1;
+    animation: drift 8s ease-in-out infinite alternate;
+}
+
+.eyebrow,.section-number {
+    font: 500 .72rem "DM Mono",monospace;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size:20px;
+}
+
+h1 {
+    max-width: 900px;
+    margin: 20px 0;
+    font: 600 clamp(4.2rem,10vw,9rem)/.84 "Playfair Display",serif;
+    letter-spacing: -.065em;
+}
+
+.lead {
+    width: min(600px,75%);
+    margin-left: auto;
+    font-size: 1.2rem;
+    line-height: 1.65;
+}
+
+.hero-note {
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    padding: 12px 18px;
+    background: var(--lime);
+    transform: rotate(-2deg);
+    font: 500 .72rem "DM Mono",monospace;
+    text-transform: uppercase;
+}
+
+.story {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 10vw;
+    padding: 130px 0;
+}
+
+.story h2,.privacy-callout h2 {
+    margin: 14px 0;
+    font: 600 clamp(2.7rem,5vw,5.3rem)/.98 "Playfair Display",serif;
+    letter-spacing: -.045em;
+}
+
+.story>p {
+    font-size: 20px;
+    line-height: 2.0;
+    align-self: end;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.features article {
+    min-height: 300px;
+    padding: 48px;
+    border: 1px solid rgba(241,238,223,.18);
+    transition: background .3s,transform .3s;
+}
+
+.features article:hover {
+    background: #2d4439;
+    transform: translateY(-5px);
+}
+
+.features span {
+    font: 500 .7rem "DM Mono",monospace;
+    color: var(--lime);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.features h3 {
+    max-width: 300px;
+    margin: 60px 0 14px;
+    font: 600 2rem "Playfair Display",serif;
+}
+
+.features p {
+    max-width: 430px;
+    color: #cbd2ca;
+    line-height: 1.7;
+}
+
+.privacy-callout {
+    margin: 120px 0;
+    padding: 90px max(30px,8vw);
+    background: var(--mint);
+    position: relative;
+    overflow: hidden;
+}
+
+.privacy-callout::after {
+    content: "PRIVATE";
+    position: absolute;
+    right: -20px;
+    bottom: -28px;
+    color: rgba(32,48,41,.08);
+    font: bold clamp(5rem,15vw,12rem) Manrope,sans-serif;
+}
+
+.privacy-callout p:not(.section-number) {
+    max-width: 700px;
+    line-height: 2.0;
+}
+
+.privacy-callout a {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+
+.details {
+    padding: 0 0 120px;
+}
+
+.details h2 {
+    font: 600 2.4rem "Playfair Display",serif;
+}
+
+dl {
+    border-top: 1px solid var(--line);
+}
+
+dl div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+dt {
+    font: .72rem "DM Mono",monospace;
+    text-transform: uppercase;
+}
+
+dd {
+    margin: 0;
+}
+
+.placeholder {
+    color: #766f49;
+}
+
+footer {
+    min-height: 100px;
+    padding: 25px max(20px,calc((100vw - 1180px)/2));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: .8rem;
+}
+
+@keyframes drift {
+    to {
+        transform: rotate(-8deg) translateY(20px);
+        border-radius: 60% 40% 38% 62%;
+    }
+}
+
+@media (max-width: 760px) {
+    .site-header {
+        align-items:flex-start;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    nav a {
+        font-size: .63rem;
+    }
+
+    .hero {
+        min-height: 590px;
+    }
+
+    h1 {
+        font-size: clamp(3.5rem,18vw,6rem);
+    }
+
+    .lead {
+        width: 100%;
+    }
+
+    .hero::after {
+        width: 180px;
+        top: 22%;
+    }
+
+    .story {
+        grid-template-columns: 1fr;
+        padding: 80px 0;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .features article {
+        min-height: 240px;
+        padding: 34px;
+    }
+
+    dl div {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    footer {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    * {
+        animation: none!important;
+        scroll-behavior: auto!important;
+    }
+}
+.wordmark {
+    flex-shrink: 0;
+    color: #111;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+
+    margin-right: 55px;
+}
+.wordmark img{
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+.wordmark span{
+  height: 60px;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 700px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+<a class="wordmark" href="index.html">
+                      <img src="Images/Image1.jpeg" alt = "Wrindha OS logo">
+
+      <span>Wrindha OS</span>
+    </a>
+       </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Built in Andhra Pradesh, India</div>
+      <h1>One calm place for serious study.</h1>
+      <p class="lead">WrindhaOS helps NEET, JEE, UPSC, and other exam aspirants turn long-term goals into focused daily action.</p>
+      <div class="hero-note">Plan clearly. Study deeply. Review honestly.</div>
+    </section>
+
+    <section class="story" aria-labelledby="why-title">
+      <div>
+        <p class="section-number">01 / Why</p>
+        <h2 id="why-title">Less app-switching.<br>More meaningful progress.</h2>
+      </div>
+      <p>Competitive preparation needs structure. WrindhaOS brings schedules, habits, subject mastery, goals, priorities, journaling, focus sessions, and simple expense tracking into one private workspace.</p>
+    </section>
+
+    <section class="features" aria-label="What WrindhaOS offers">
+      <article><span>Plan</span><h3>Study with direction</h3><p>Shape daily, weekly, and long-term study schedules around what matters most.</p></article>
+      <article><span>Track</span><h3>See real progress</h3><p>Follow habits, study sessions, subjects, topics, goals, and milestones over time.</p></article>
+      <article><span>Reflect</span><h3>Keep thoughts private</h3><p>Use an encrypted journal for reflection and personal well-being check-ins.</p></article>
+      <article><span>Balance</span><h3>Manage study life</h3><p>Connect goals to a career roadmap and keep lightweight budgets and expenses.</p></article>
+    </section>
+
+    <section class="privacy-callout">
+      <p class="section-number">02 / Our promise</p>
+      <h2>Your workspace belongs to you.</h2>
+      <p>Owner-only access rules protect your journal, habits, goals, subjects, tasks, and calendar. Administrators only use limited account, subscription, and aggregate usage data needed to operate the service.</p>
+      <a href="privacy.html">Read the short privacy policy <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="details" aria-labelledby="details-title">
+      <h2 id="details-title">Company details</h2>
+      <dl>
+        <div><dt>Legal entity</dt><dd class="placeholder">[WRINDHA OS]</dd></div>
+        <div><dt>Registration</dt><dd class="placeholder"></dd></div>
+        <div><dt>Registered office</dt><dd class="placeholder"></dd></div>
+        <div><dt>Website</dt><dd>wrindhaos.in</dd></div>
+        <div><dt>Android package</dt><dd>com.wrindhaos.productivity</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer><p>WrindhaOS · Focus with intention.</p><p>Effective date: <span class="placeholder"></span></p></footer>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Source+Code+Pro:wght@500&display=swap'); :root {
+    --navy: #142b3b;
+    --sky: #dceef0;
+    --paper: #fbfaf5;
+    --coral: #d76d55;
+    --sage: #9caf9b;
+    --line: #cfd7d3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--navy);
+    background: var(--paper);
+    font-family: "DM Sans",sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    height: 80px;
+    padding: 0 max(22px,calc((100vw - 1280px)/2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--navy);
+    color: white;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.brand span {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--coral);
+    font-family: Newsreader,serif;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    opacity: .64;
+}
+
+nav a:hover,nav .active {
+    opacity: 1;
+}
+
+main {
+    width: min(1280px,100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 230px 1fr;
+}
+
+aside {
+    height: max-content;
+    position: sticky;
+    top: 30px;
+    padding: 80px 28px;
+}
+
+aside p {
+    margin: 0 0 30px;
+    font: 500 .72rem "Source Code Pro",monospace;
+    text-transform: uppercase;
+    color: var(--coral);
+}
+
+aside a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: .82rem;
+    border-bottom: 1px solid var(--line);
+}
+
+aside a:hover {
+    padding-left: 8px;
+    color: var(--coral);
+}
+
+article {
+    border-left: 1px solid var(--line);
+}
+
+.hero {
+    padding: 90px clamp(30px,7vw,100px);
+    background: var(--sky);
+}
+
+.eyebrow,.number {
+    font: 500 .7rem "Source Code Pro",monospace;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--coral);
+}
+
+h1 {
+    max-width: 820px;
+    margin: 20px 0;
+    font: 500 clamp(3.5rem,7vw,7rem)/.95 Newsreader,serif;
+    letter-spacing: -.04em;
+}
+
+.hero>p:not(.eyebrow) {
+    max-width: 650px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 50px;
+    font-size: .72rem;
+}
+
+.placeholder {
+    color: #a24e3c;
+}
+
+.promise {
+    margin: 55px clamp(30px,7vw,100px) 0;
+    padding: 34px;
+    border: 1px solid var(--coral);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 30px;
+}
+
+.promise strong {
+    font-family: "Source Code Pro",monospace;
+    text-transform: uppercase;
+    font-size: .72rem;
+    color: var(--coral);
+}
+
+.promise p {
+    margin: 0;
+    font: 500 1.5rem/1.4 Newsreader,serif;
+}
+
+.content-section {
+    padding: 90px clamp(30px,7vw,100px);
+    border-bottom: 1px solid var(--line);
+}
+
+.content-section h2 {
+    margin: 12px 0 38px;
+    font: 500 clamp(2.3rem,4vw,4rem)/1 Newsreader,serif;
+}
+
+.content-section>p {
+    max-width: 820px;
+    line-height: 1.8;
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+}
+
+.data-grid div {
+    padding: 35px;
+    background: var(--paper);
+}
+
+.data-grid h3 {
+    font: 500 1.45rem Newsreader,serif;
+}
+
+.data-grid p {
+    line-height: 1.7;
+}
+
+.check-list {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.check-list li {
+    padding: 20px 20px 20px 48px;
+    background: var(--sky);
+    position: relative;
+}
+
+.check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 18px;
+    color: var(--coral);
+    font-weight: 600;
+}
+
+.dark-section {
+    color: white;
+    background: var(--navy);
+}
+
+.dark-section p {
+    color: #d1dfe2;
+}
+
+.rights {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+.rights p {
+    margin: 0;
+    padding: 24px;
+    min-height: 110px;
+    background: #e6ebdf;
+    font: 500 1.15rem Newsreader,serif;
+}
+
+.contact-strip {
+    margin: 70px clamp(30px,7vw,100px);
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    background: var(--coral);
+    color: white;
+}
+
+.contact-strip p {
+    margin: 0;
+}
+
+.contact-strip .placeholder {
+    color: #fff3c9;
+}
+
+@media (max-width: 820px) {
+    header {
+        height:auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        display: none;
+    }
+
+    article {
+        border-left: 0;
+    }
+
+    .promise,.data-grid,.check-list {
+        grid-template-columns: 1fr;
+    }
+
+    .rights {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-strip {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    .rights {
+        grid-template-columns:1fr;
+    }
+}
+.wordmark {
+    flex-shrink: 0;
+    color: #111;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+
+    margin-right: 55px;
+}
+.wordmark img{
+  height: 45px;
+  width: 45px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+.wordmark span{
+  height: 60px;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 700px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  color:#fff;
+}
+
+</style>    
+</head>
+    <body>
+        
+  <header>
+<a class="wordmark" href="index.html">
+                      <img src="Images/Image1.jpeg" alt = "Wrindha OS logo">
+
+      <span>Wrindha OS</span>
+    </a>
+       </header>
+  </header>
+
+  <main>
+    <aside>
+      <p>Privacy policy</p>
+      <a href="#collect">What we collect</a>
+      <a href="#use">How we use it</a>
+      <a href="#protect">Protection</a>
+      <a href="#rights">Your rights</a>
+      <a href="#retention">Retention</a>
+    </aside>
+
+    <article>
+      <section class="hero">
+        <p class="eyebrow">Plain-language edition</p>
+        <h1>Your data is for your productivity—not for sale.</h1>
+        <p>This short policy explains how WrindhaOS handles information in the Android app and at wrindhaos.in.</p>
+        <div class="meta"><span>Publisher: <b class="placeholder">[WRINDHA OS]</b></span><span>Effective: <b class="placeholder"></b></span></div>
+      </section>
+
+      <section class="promise">
+        <strong>Our core promise</strong>
+        <p>We do not sell personal data, use private journal or productivity content for third-party ad training, or receive your card, UPI, or bank details.</p>
+      </section>
+
+      <section id="collect" class="content-section">
+        <span class="number">01</span><h2>What we collect</h2>
+        <div class="data-grid">
+          <div><h3>You provide</h3><p>Name, email or phone, optional profile image, journal entries, habits, tasks, goals, study records, calendar items, budgets, expenses, support messages, and consent choices.</p></div>
+          <div><h3>Collected automatically</h3><p>Feature usage, study and task counts, diagnostics, app version, IP and user-agent records, plus subscription status and order metadata from Google Play.</p></div>
+        </div>
+      </section>
+
+      <section id="use" class="content-section">
+        <span class="number">02</span><h2>Why we use it</h2>
+        <ul class="check-list">
+          <li>Run your account and sync features across devices.</li>
+          <li>Send reminders and notifications you choose to enable.</li>
+          <li>Provide support, resolve grievances, and prevent misuse.</li>
+          <li>Create de-identified product analytics and meet legal duties.</li>
+        </ul>
+        <p>Processing is based mainly on your consent, the service you ask us to provide, and legal obligations. You can withdraw consent by deleting individual content or your account, subject to required retention.</p>
+      </section>
+
+      <section id="protect" class="content-section dark-section">
+        <span class="number">03</span><h2>Who can see it &amp; how it is protected</h2>
+        <p>Owner-only database rules restrict private records to your account. Journal content is encrypted. Administrators use limited account, billing, support, and aggregate data to operate the service.</p>
+        <p>Necessary providers may process data for hosting, authentication, notifications, diagnostics, or Google Play billing. Data may also be disclosed when legally required.</p>
+      </section>
+
+      <section id="rights" class="content-section">
+        <span class="number">04</span><h2>Your choices and rights</h2>
+        <div class="rights">
+          <p>Access and review your data.</p><p>Correct inaccurate details.</p><p>Delete records or your account.</p><p>Withdraw optional consent.</p><p>Manage notifications.</p><p>Raise a grievance.</p>
+        </div>
+        <p>Requests are acknowledged promptly and handled within applicable legal timelines. Children under 13 may not use WrindhaOS; users aged 13–17 require parent or guardian consent.</p>
+      </section>
+
+      <section id="retention" class="content-section">
+        <span class="number">05</span><h2>Retention, transfers &amp; updates</h2>
+        <p>Personal content is kept while your account is active and removed according to the Data Retention &amp; Deletion Policy after deletion requests. Limited billing, consent, security, or legal records may be retained where required.</p>
+        <p>Some service providers may process data outside India using appropriate safeguards. Policy updates are posted at wrindhaos.in/privacy and, when material, communicated in the app.</p>
+      </section>
+
+      <section class="contact-strip"><p>Privacy question or request?</p><strong class="placeholder">[wrindhaos.in]</strong></section>
+    </article>
+  </main>
+</body>
+</html>
