@@ -24,8 +24,6 @@ WrindhaOS is an all-in-one personal operating system built to replace scattered 
 
 - `index.html` - Homepage with interactive module previews, pricing comparison, fit criteria, and FAQ.
 - `about.html` - Founder's Story (*Why I Built WrindhaOS*), Team's Story, vision, values, and origin.
-- `quiz.html` - Interactive 2-minute self-assessment diagnostic quiz with custom score scoring and recommendations.
-- `join.html` - Early access waitlist registration portal with role-based onboarding.
 - `contact.html` - Direct contact and user support form.
 - `privacy.html` - Privacy Policy (compliant with DPDP Act, 2023 & Google Play Data Safety).
 - `terms.html` - Terms of Service & acceptable use conditions.
